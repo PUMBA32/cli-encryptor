@@ -11,7 +11,9 @@ from src.history import HistorySaver  # For save history about requests into .js
 menu: list[str] = [
     "encode message",
     "decode message",
+    "get ASCII implementation",
     "history of requests",
+    "clear history",
     "exit"
 ]
 
@@ -27,6 +29,9 @@ def show_menu() -> None:
 
 
 def main() -> None:
+    encoder: Encoder = Encoder()
+    decoder: Decoder = Decoder()
+
     cls()
     print("Welcome to the Ultimate encoder!")
     while 1:
@@ -37,20 +42,27 @@ def main() -> None:
         match inp:
             case "1": 
                 text: str = input("Enter text to encode: ").strip()
+                result: str = encoder.encode(text)  # Encode text into code
                 
-                result: str = Encoder.encode(text)  # Encode text into code
                 print(f"Result of encoding: {result}\n")
                 
                 HistorySaver.save("encoding", text, result)  # Saving data about encoding about encoding
             case "2": 
                 text: str = input("Enter text to decode: ").strip()
+                result: str = decoder.decode(text)  # Decode code into text
                 
-                result: str = Decoder.decode(text)  # Decode code into text
                 print(f"Result od decoding: {result}\n")
                 
                 HistorySaver.save("encode", text, result)  # Saving data into json about decoding
-            case "3": 
+            case "3":
+                text: str = input("Enter text to get an ASCII implementation: ").strip()
+                result: list[int] = encoder.encode_to_ascii(text)
+                
+                print(f"Result: {result}\n")
+            case "4": 
                 HistorySaver.show_history()
+            case "5":
+                HistorySaver.clear()
             case _: break
 
 
