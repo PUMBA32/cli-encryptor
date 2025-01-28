@@ -26,8 +26,18 @@ class Encoder:
 
 if __name__ == '__main__':
     e = Encoder()
+
     print(Encoder.encode(e, "hi"))
     print(Encoder.encode(e, "hello"))
     print(Encoder.encode(e, "tyler was gone"))
     print(Encoder.encode(e, "WELCOME BACK"))
     print(Encoder.encode(e, ""))
+
+    print("\n===============================\n")
+
+    print(Encoder.encode_to_ascii(e, 'hello'))
+    print(Encoder.encode_to_ascii(e, 'hi'))
+    print(Encoder.encode_to_ascii(e, 'tyler was gone'))
+    print(Encoder.encode_to_ascii(e, 'YES'))
+    print(Encoder.encode_to_ascii(e, '19 YEARS OLD'))
+    print(Encoder.encode_to_ascii(e, ''))
