@@ -12,7 +12,7 @@ class TestEncoder(unittest.TestCase):
         self.assertEqual(self.e.encode('hello'), '*&@#*&*#*&:#*&:#***')
         self.assertEqual(self.e.encode('tyler was gone'), '**}#*=*#*&:#*&*#**@#$=#**<#<{#**-#$=#*&$#***#**&#*&*')
         self.assertEqual(self.e.encode('WELCOME BACK'), ":{#}<#{}#}{#{<#{{#}<#$=#}}#}-#}{#{-")
-        self.assertEqual(self.e.encode("", ""))
+        self.assertEqual(self.e.encode(""), "")
 
 
     def test_encode_to_ascii(self) -> None:

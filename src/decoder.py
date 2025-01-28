@@ -2,6 +2,8 @@ class Decoder:
     def __init__(self) -> None: ...
 
     def decode(self, text: str) -> str: 
+        if text == "": return ""
+
         text = text.replace("&", "0")
         text = text.replace("*", "1")
         text = text.replace("=", "2")
